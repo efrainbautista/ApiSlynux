@@ -16,6 +16,8 @@ import { DniValue } from 'src/register/infrastructure/persistence/values/dni.val
 import { UserId } from 'src/users/domain/aggregates/user/user-id.value';
 import { CorreoPerson } from 'src/shared/domain/values/person-correo.value';
 import { PersonContraseña } from 'src/shared/domain/values/person-contraseña.value';
+import { CorreoValue } from 'src/register/infrastructure/persistence/values/correo.value';
+import { ContraseñaValue } from 'src/register/infrastructure/persistence/values/contraseña.value';
 
 export class PersonMapper {
   public static dtoRequestToCommand(registerPersonRequest: RegisterPersonRequest) {
@@ -55,6 +57,8 @@ export class PersonMapper {
     const personEntity: PersonEntity = new PersonEntity();
     personEntity.name = PersonNameValue.from(person.getName().getFirstName(), person.getName().getLastName());
     personEntity.dni = DniValue.from(person.getDni().getValue());
+    personEntity.correo = CorreoValue.from(person.getCorreo().getCorreo());
+    personEntity.contraseña = ContraseñaValue.from(person.getContraseña().getContraseña());
     const createdAt: string = person.getAuditTrail() != null && person.getAuditTrail().getCreatedAt() != null ? person.getAuditTrail().getCreatedAt().format() : null;
     const createdBy: number = person.getAuditTrail() != null && person.getAuditTrail().getCreatedBy() != null ? person.getAuditTrail().getCreatedBy().getValue() : null;
     const updatedAt: string = person.getAuditTrail() != null && person.getAuditTrail().getUpdatedAt() != null ? person.getAuditTrail().getUpdatedAt().format() : null;
