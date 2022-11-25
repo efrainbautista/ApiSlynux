@@ -17,13 +17,13 @@ export class Envelope {
 
   static serverError(): Envelope {
     const errors: AppError[] = [];
-    errors.push(new AppError('Internal Server Error', null));
+    errors.push(new AppError('Error Interno del Servidor', null));
     return new Envelope(null, errors);
   }
 
   static notFound(): Envelope {
     const errors: AppError[] = [];
-    errors.push(new AppError('Entity Not Found', null));
+    errors.push(new AppError('Entidad no encontrada', null));
     return new Envelope(null, errors);
   }
 }

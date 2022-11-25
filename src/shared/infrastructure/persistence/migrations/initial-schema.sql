@@ -47,6 +47,8 @@ CREATE TABLE IF NOT EXISTS clients(
   first_name VARCHAR(75) NULL,
   last_name VARCHAR(75) NULL,
   dni VARCHAR(8) NULL,
+  correo VARCHAR(15) NULL,
+  contraseña VARCHAR(15) NULL,
   PRIMARY KEY(id),
   UNIQUE INDEX UQ_clients_ruc(ruc),
   UNIQUE INDEX UQ_clients_company_name(company_name), 

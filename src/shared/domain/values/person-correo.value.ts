@@ -26,13 +26,6 @@ export class CorreoPerson {
     if (value === "") {
       notification.addError('Se requiere de un correo electronico', null);
     }
-    /*if (value.length != this.MAX_LENGTH) {
-      notification.addError('El campo dni debe tener ' + Correo.MAX_LENGTH + ' caracteres', null);
-    }*/
-    const regExp = new RegExp('/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i');
-    if (regExp.test(value) === false) {
-      notification.addError('El formato del correo no es valido', null);
-    }
     if (notification.hasErrors()) {
       return Result.error(notification);
     }

@@ -5,7 +5,7 @@ import { Result } from 'typescript-result';
 
 export class PersonContraseña {
   private readonly contraseña: string;
-  private static MAX_LENGTH: number = 13;
+  private static MAX_LENGTH: number = 15;
 
   private constructor(_contraseña: string) {
     this.contraseña = _contraseña;
@@ -27,12 +27,7 @@ export class PersonContraseña {
 
     if (_contraseña === "") {
       notification.addError('Inserte una contraseña', null);
-    }
-    
-    if (_contraseña.length > this.MAX_LENGTH) {
-      notification.addError('La longitud máxima de la contraseña es' + this.MAX_LENGTH + ' es de caracteres, incluidos los espacios', null);
-    }
-    
+    }    
     if (notification.hasErrors()) {
       return Result.error(notification);
     }
